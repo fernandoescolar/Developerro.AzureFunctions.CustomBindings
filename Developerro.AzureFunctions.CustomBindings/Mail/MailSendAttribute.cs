@@ -21,7 +21,16 @@ namespace Developerro.AzureFunctions.CustomBindings
 
         public bool UseSsl { get; set; }
 
-        internal void Autofill()
+        internal void Validate()
+        {
+            Autofill();
+            if (string.IsNullOrEmpty(Host) || Port <= 0)
+            {
+                throw new ArgumentException("You should specify 'Host' and 'Port' SMTP connection parameters.");
+            }
+        }
+
+        private void Autofill()
         {
             if (string.IsNullOrEmpty(Connection)) return;
 

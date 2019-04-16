@@ -17,7 +17,7 @@ namespace Developerro.AzureFunctions.CustomBindings
         public MailAsyncCollector(MailSendAttribute binding)
         {
             _binding = binding;
-            _binding.Autofill();
+            _binding.Validate();
         }
 
         public Task AddAsync(MailMessage item, CancellationToken cancellationToken = default)

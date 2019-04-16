@@ -20,11 +20,7 @@ namespace Developerro.AzureFunctions.CustomBindings
 
         private static void ValidateMailSendAttribute(MailSendAttribute attribute, Type parameterType)
         {
-            attribute.Autofill();
-            if (string.IsNullOrEmpty(attribute.Host) || attribute.Port <= 0)
-            {
-                throw new ArgumentException("You should specify 'Host' and 'Port' SMTP connection parameters.");
-            }
+            attribute.Validate();
         }
     }
 }
