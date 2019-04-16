@@ -51,11 +51,6 @@ namespace Developerro.AzureFunctions.CustomBindings
             {
                 UseSsl = useSsl;
             }
-
-            if (string.IsNullOrEmpty(Host) || Port <= 0)
-            {
-                throw new ArgumentException("You should specify 'Host' and 'Port' SMTP connection parameters.");
-            }
         }
     }
 }
