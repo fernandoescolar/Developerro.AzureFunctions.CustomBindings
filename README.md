@@ -1,0 +1,1 @@
+# Developerro.AzureFunctions.CustomBindings
