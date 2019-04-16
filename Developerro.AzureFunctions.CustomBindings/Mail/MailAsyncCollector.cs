@@ -1,4 +1,6 @@
-﻿using System.Net;
+﻿using System;
+using System.Collections.Concurrent;
+using System.Net;
 using System.Net.Mail;
 using System.Threading;
 using System.Threading.Tasks;
@@ -10,6 +12,7 @@ namespace Developerro.AzureFunctions.CustomBindings
     public class MailAsyncCollector : IAsyncCollector<MailMessage>
     {
         private readonly MailSendAttribute _binding;
+        private readonly ConcurrentQueue<MailMessage> _messages = new ConcurrentQueue<MailMessage>();
 
         public MailAsyncCollector(MailSendAttribute binding)
         {
@@ -17,18 +20,33 @@ namespace Developerro.AzureFunctions.CustomBindings
             _binding.Autofill();
         }
 
-        public async Task AddAsync(MailMessage item, CancellationToken cancellationToken = default)
+        public Task AddAsync(MailMessage item, CancellationToken cancellationToken = default)
+        {
+            if (item == null)
+            {
+                throw new ArgumentNullException(nameof(item));
+            }
+
+            if (string.IsNullOrEmpty(item.From) || string.IsNullOrEmpty(item.To))
+            {
+                throw new InvalidOperationException("A 'From' and 'To' address must be specified for the message.");
+            }
+
+            _messages.Enqueue(item);
+
+            return Task.CompletedTask;
+        }
+
+        public async Task FlushAsync(CancellationToken cancellationToken = default)
         {
             using (var smtp = CreateSmtpClient(_binding))
             {
-                var message = CreateMailMessage(item);
-                await smtp.SendMailAsync(message);
+                while (_messages.TryDequeue(out var message))
+                {
+                    var mailMessage = CreateMailMessage(message);
+                    await smtp.SendMailAsync(mailMessage);
+                }
             }
-        }
-
-        public Task FlushAsync(CancellationToken cancellationToken = default)
-        {
-            return Task.FromResult(true);
         }
 
         private static SmtpClient CreateSmtpClient(MailSendAttribute binding)
