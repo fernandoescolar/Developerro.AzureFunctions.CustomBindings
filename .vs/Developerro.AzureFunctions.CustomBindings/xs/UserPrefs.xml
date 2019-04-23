@@ -1,0 +1,24 @@
+﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{B8C5FDBC-2E31-4528-8DC0-454FAF2773D8}|Default">
+  <MonoDevelop.Ide.Workbench>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Developerro.AzureFunctions.CustomBindings" expanded="True">
+            <Node name="Developerro.AzureFunctions.CustomBindings" expanded="True">
+              <Node name="KeyVault" expanded="True">
+                <Node name="KeyVaultSecretAttribute.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.TestApp PreferredExecutionTarget="MonoDevelop.Default" />
+</Properties>
