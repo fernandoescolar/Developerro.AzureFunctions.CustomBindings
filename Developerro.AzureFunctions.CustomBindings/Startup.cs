@@ -11,6 +11,7 @@ namespace Developerro.AzureFunctions.CustomBindings
         public void Configure(IWebJobsBuilder builder)
         {
             builder.AddExtension<MailExtensionConfigProvider>();
+            builder.AddExtension<KeyVaultExtensionConfigProvider>();
         }
     }
 }

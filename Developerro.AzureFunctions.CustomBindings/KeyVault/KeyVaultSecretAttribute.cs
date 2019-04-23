@@ -14,7 +14,7 @@ namespace Developerro.AzureFunctions.CustomBindings
 
         public KeyVaultSecretAttribute(string key)
         {
-            Key = key;
+            SecretIdentifier = key;
         }
 
         [AppSetting]
@@ -24,9 +24,23 @@ namespace Developerro.AzureFunctions.CustomBindings
 
         public string ClientSecret { get; set; }
 
-        public string Key { get; set; }
+        public string SecretIdentifier { get; set; }
 
-        internal void Autofill()
+        internal void Validate()
+        {
+            Autofill();
+            if (string.IsNullOrEmpty(ClientId) || string.IsNullOrEmpty(ClientSecret))
+            {
+                throw new ArgumentException("You should specify 'client_id' and 'client_secret' KeyVaultSecret binding parameters.");
+            }
+
+            if (string.IsNullOrEmpty(SecretIdentifier))
+            {
+                throw new ArgumentException("You should specify 'secret identifier' KeyVaultSecret binding parameters.");
+            }
+        }
+
+        private void Autofill()
         {
             if (string.IsNullOrEmpty(Connection)) return;
 

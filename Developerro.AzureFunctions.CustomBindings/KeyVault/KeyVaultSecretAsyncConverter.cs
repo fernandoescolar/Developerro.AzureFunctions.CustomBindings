@@ -7,13 +7,14 @@ using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
 namespace Developerro.AzureFunctions.CustomBindings
 {
-    public class KeyVaultSecretConverter : IAsyncConverter<KeyVaultSecretAttribute, string>
+    public class KeyVaultSecretAsyncConverter : IAsyncConverter<KeyVaultSecretAttribute, string>
     {
         public async Task<string> ConvertAsync(KeyVaultSecretAttribute input, CancellationToken cancellationToken = default)
         {
+            input.Validate();
             using (var client = CreateClient(input.ClientId, input.ClientSecret))
             {
-                var secret = await client.GetSecretAsync(input.Key);
+                var secret = await client.GetSecretAsync(input.SecretIdentifier, cancellationToken);
                 return secret.Value;
             }
         }

@@ -7,7 +7,14 @@ namespace Developerro.AzureFunctions.CustomBindings
     {
         public void Initialize(ExtensionConfigContext context)
         {
+            var rule = context.AddBindingRule<KeyVaultSecretAttribute>();
+            rule.AddValidator(ValidateKeyVaultSecretAttribute);
+            rule.BindToInput(new KeyVaultSecretAsyncConverter());
+        }
 
+        private static void ValidateKeyVaultSecretAttribute(KeyVaultSecretAttribute attribute, Type parameterType)
+        {
+            attribute.Validate();
         }
     }
 }
