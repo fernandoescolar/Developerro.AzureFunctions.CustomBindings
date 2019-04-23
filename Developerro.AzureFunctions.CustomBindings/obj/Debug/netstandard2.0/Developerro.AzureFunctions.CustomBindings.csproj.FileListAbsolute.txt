@@ -1,9 +1,0 @@
-/Users/fernandoescolar/projects/azurefunctions-bindings/Developerro.AzureFunctions.CustomBindings/bin/Debug/netstandard2.0/Developerro.AzureFunctions.CustomBindings.deps.json
-/Users/fernandoescolar/projects/azurefunctions-bindings/Developerro.AzureFunctions.CustomBindings/bin/Debug/netstandard2.0/Developerro.AzureFunctions.CustomBindings.dll
-/Users/fernandoescolar/projects/azurefunctions-bindings/Developerro.AzureFunctions.CustomBindings/bin/Debug/netstandard2.0/Developerro.AzureFunctions.CustomBindings.pdb
-/Users/fernandoescolar/projects/azurefunctions-bindings/Developerro.AzureFunctions.CustomBindings/obj/Debug/netstandard2.0/Developerro.AzureFunctions.CustomBindings.csprojAssemblyReference.cache
-/Users/fernandoescolar/projects/azurefunctions-bindings/Developerro.AzureFunctions.CustomBindings/obj/Debug/netstandard2.0/Developerro.AzureFunctions.CustomBindings.csproj.CoreCompileInputs.cache
-/Users/fernandoescolar/projects/azurefunctions-bindings/Developerro.AzureFunctions.CustomBindings/obj/Debug/netstandard2.0/Developerro.AzureFunctions.CustomBindings.AssemblyInfoInputs.cache
-/Users/fernandoescolar/projects/azurefunctions-bindings/Developerro.AzureFunctions.CustomBindings/obj/Debug/netstandard2.0/Developerro.AzureFunctions.CustomBindings.AssemblyInfo.cs
-/Users/fernandoescolar/projects/azurefunctions-bindings/Developerro.AzureFunctions.CustomBindings/obj/Debug/netstandard2.0/Developerro.AzureFunctions.CustomBindings.dll
-/Users/fernandoescolar/projects/azurefunctions-bindings/Developerro.AzureFunctions.CustomBindings/obj/Debug/netstandard2.0/Developerro.AzureFunctions.CustomBindings.pdb
