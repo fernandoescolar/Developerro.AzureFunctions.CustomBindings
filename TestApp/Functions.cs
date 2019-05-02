@@ -40,5 +40,14 @@ namespace TestApp
             log.LogInformation("C# HTTP trigger function processed a request.");
             return new OkObjectResult($"Your secret: {secret}");
         }
+
+        [FunctionName("TestRedisSub")]
+        public static void TestRedisSub(
+          [RedisSubTrigger(Connection = "RedisConnectionString", Channel = "test")] string message,
+          ILogger log)
+        {
+            log.LogInformation("C# Redis pub/sub trigger function processed a request.");
+            log.LogInformation($"Message arrived: {message}");
+        }
     }
 }

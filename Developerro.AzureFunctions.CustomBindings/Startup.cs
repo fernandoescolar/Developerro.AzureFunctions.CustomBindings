@@ -12,6 +12,7 @@ namespace Developerro.AzureFunctions.CustomBindings
         {
             builder.AddExtension<MailExtensionConfigProvider>();
             builder.AddExtension<KeyVaultExtensionConfigProvider>();
+            builder.AddExtension<RedisSubExtensionConfigProvider>();
         }
     }
 }
